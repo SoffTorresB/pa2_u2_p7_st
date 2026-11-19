@@ -35,8 +35,8 @@ public class PedidoRepositoryImpl implements PedidoRepository {
     @Override
     public void delete(Integer id) {
         Pedido pedido = this.read(id); // Obtener el pedido a eliminar utilizando el método read
-        if (pedido != null) {
+
             this.entityManager.remove(pedido);
-        }
+        
     }
 }
