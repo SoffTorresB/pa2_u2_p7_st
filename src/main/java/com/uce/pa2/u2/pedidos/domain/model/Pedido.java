@@ -26,6 +26,11 @@ public class Pedido {
     @Column(name = "ped_fecha")
     private String fecha;
 
+    @Override
+    public String toString() {
+        return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", cantidad=" + cantidad
+                + ", fecha=" + fecha + "]";
+    }
     public Integer getId() {
         return id;
     }
@@ -33,6 +38,8 @@ public class Pedido {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    
 
     public String getProducto() {
         return producto;
