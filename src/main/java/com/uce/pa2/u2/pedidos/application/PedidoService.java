@@ -7,25 +7,26 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
-@ApplicationScoped 
-@Transactional // Anotación para indicar que los métodos de esta clase deben ejecutarse dentro de una transacción
+@ApplicationScoped
+@Transactional // Anotación para indicar que los métodos de esta clase deben ejecutarse dentro
+               // de una transacción
 public class PedidoService {
-    @Inject 
+    @Inject
     private PedidoRepository pedidoRepository;
 
-    public void guardar (Pedido pedido) {
+    public void guardar(Pedido pedido) {
         pedidoRepository.create(pedido);
     }
 
-    public Pedido buscarPorId (Integer id) {
+    public Pedido buscarPorId(Integer id) {
         return this.pedidoRepository.read(id);
     }
 
-    public void actualizar (Pedido pedido) {
+    public void actualizar(Pedido pedido) {
         this.pedidoRepository.update(pedido);
     }
 
-    public void eliminar (Integer id) {
+    public void eliminar(Integer id) {
         this.pedidoRepository.delete(id);
     }
 }
