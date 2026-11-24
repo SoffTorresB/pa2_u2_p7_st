@@ -22,26 +22,26 @@ public class Main implements QuarkusApplication {
         System.out.println("[Producto de Prueba]");
 
         //CREATE
-      /* Pedido pedido = new Pedido();
-        pedido.setProducto("Producto de prueba");
-        pedido.setPrecio(100.0);
-        pedido.setFecha("2023-06-01");
+      //Pedido pedido = new Pedido();
+        //pedido.setProducto("Producto de prueba");
+        //pedido.setPrecio(100.0);
+        //pedido.setFecha("2023-06-01");
 
       
-        this.pedidoService.guardar(pedido);*/
+        //this.pedidoService.guardar(pedido);
         
 
         //READ
-        Pedido pedido = this.pedidoService.buscarPorId(2);
-        System.out.println("Pedido encontrado: " + pedido); 
+        Pedido pedido1 = this.pedidoService.buscarPorId(2);
+        System.out.println("Pedido encontrado: " + pedido1); 
 
 
         //UPDATE
-        //pedido.setPrecio(200.0);
-       // this.pedidoService.actualizar(pedido);
+       // pedido.setPrecio(200.0);
+       //this.pedidoService.actualizar(pedido);
 
-        //Pedido pedido2 = this.pedidoService.buscarPorId(1);
-        //System.out.println("Pedido encontrado: " + pedido2);
+        Pedido pedido2 = this.pedidoService.buscarPorId(1);
+        System.out.println("Pedido encontrado: " + pedido2);
         return 0;
 
 
