@@ -25,6 +25,8 @@ public class Pedido {
     private int cantidad;
     @Column(name = "ped_fecha")
     private String fecha;
+    @Column (name = "ped_numero")
+    private String numero;
 
     @Override
     public String toString() {
@@ -72,4 +74,11 @@ public class Pedido {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    public String getNumero() {
+        return numero;
+    }
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
 }

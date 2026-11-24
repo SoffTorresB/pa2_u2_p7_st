@@ -1,5 +1,7 @@
 package com.uce.pa2.u2;
 
+import java.util.Optional;
+
 import com.uce.pa2.u2.pedidos.application.PedidoService;
 import com.uce.pa2.u2.pedidos.domain.model.Pedido;
 
@@ -21,27 +23,35 @@ public class Main implements QuarkusApplication {
     public int run(String... args) throws Exception {
         System.out.println("[Producto de Prueba]");
 
-        //CREATE
-      //Pedido pedido = new Pedido();
-        //pedido.setProducto("Producto de prueba");
-        //pedido.setPrecio(100.0);
-        //pedido.setFecha("2023-06-01");
-
-      
-        //this.pedidoService.guardar(pedido);
+        
         
 
         //READ
-        Pedido pedido1 = this.pedidoService.buscarPorId(2);
-        System.out.println("Pedido encontrado: " + pedido1); 
+        Optional<Pedido> pedido = this.pedidoService.buscarPorId(1);
+        if(pedido.isPresent()) {
+            System.out.println("Pedido encontrado: " + pedido.get());
+        } else {
+            System.out.println("Pedido no encontrado");
+        }
+       // Pedido pedido1 = this.pedidoService.buscarPorId(2);
+        System.out.println("Pedido encontrado: " + pedido); 
 
 
         //UPDATE
        // pedido.setPrecio(200.0);
        //this.pedidoService.actualizar(pedido);
 
-        Pedido pedido2 = this.pedidoService.buscarPorId(1);
-        System.out.println("Pedido encontrado: " + pedido2);
+       // Pedido pedido2 = this.pedidoService.buscarPorId(1);
+       // System.out.println("Pedido encontrado: " + pedido2);
+
+       //READ by number
+       Optional <Pedido> pedidoByNumber = this.pedidoService.buscarPorNumero("12345");
+       if(pedidoByNumber.isPresent()) {
+        System.out.println("Pedido encontrado por número: " + pedidoByNumber.get());    
+       }else {
+        System.out.println("Pedido no encontrado por número");
+       }
+
         return 0;
 
 

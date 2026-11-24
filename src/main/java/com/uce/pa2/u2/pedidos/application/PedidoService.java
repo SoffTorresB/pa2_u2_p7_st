@@ -1,5 +1,7 @@
 package com.uce.pa2.u2.pedidos.application;
 
+import java.util.Optional;
+
 import com.uce.pa2.u2.pedidos.domain.model.Pedido;
 import com.uce.pa2.u2.pedidos.domain.repository.PedidoRepository;
 
@@ -17,8 +19,11 @@ public class PedidoService {
         pedidoRepository.create(pedido);
     }
 
-    public Pedido buscarPorId (Integer id) {
+    public Optional<Pedido> buscarPorId (Integer id) {
         return this.pedidoRepository.read(id);
+    }
+    public Optional<Pedido> buscarPorNumero (String numero) {
+        return this.pedidoRepository.readByNumber(numero);
     }
 
     public void actualizar (Pedido pedido) {
