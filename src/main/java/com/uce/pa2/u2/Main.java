@@ -24,17 +24,25 @@ public class Main implements QuarkusApplication {
         System.out.println("[Producto de Prueba]");
 
         
-        
+        //insertar
+        Pedido pedido = new Pedido();
+        pedido.setProducto("Producto de prueba");       
+        pedido.setPrecio(100.0);
+        pedido.setCantidad(2);
+
+        pedido.setFecha("2023-06-01");
+        pedido.setNumero("12345");
+        this.pedidoService.guardar(pedido);
 
         //READ
-        Optional<Pedido> pedido = this.pedidoService.buscarPorId(1);
-        if(pedido.isPresent()) {
-            System.out.println("Pedido encontrado: " + pedido.get());
+        Optional<Pedido> pedido1 = this.pedidoService.buscarPorId(1);
+        if(pedido1.isPresent()) {
+            System.out.println("Pedido encontrado: " + pedido1.get());
         } else {
             System.out.println("Pedido no encontrado");
         }
        // Pedido pedido1 = this.pedidoService.buscarPorId(2);
-        System.out.println("Pedido encontrado: " + pedido); 
+        System.out.println("Pedido encontrado: " + pedido1); 
 
 
         //UPDATE
