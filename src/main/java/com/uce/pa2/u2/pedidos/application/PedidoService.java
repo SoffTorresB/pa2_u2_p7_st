@@ -1,6 +1,7 @@
 package com.uce.pa2.u2.pedidos.application;
 
 import java.util.Optional;
+import java.util.List;
 
 import com.uce.pa2.u2.pedidos.domain.model.Pedido;
 import com.uce.pa2.u2.pedidos.domain.repository.PedidoRepository;
@@ -24,6 +25,10 @@ public class PedidoService {
     }
     public Optional<Pedido> buscarPorNumero (String numero) {
         return this.pedidoRepository.readByNumber(numero);
+    }
+
+    public List<Pedido> listarTodos() {
+        return this.pedidoRepository.readAll();
     }
 
     public void actualizar (Pedido pedido) {

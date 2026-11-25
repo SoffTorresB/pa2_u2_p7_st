@@ -45,16 +45,17 @@ public class PedidoRepositoryImpl implements PedidoRepository {
 
     @Override
     public Optional<Pedido> readByNumber(String numero) {
-        // TODO Auto-generated method stub
         TypedQuery<Pedido> query = this.entityManager.createQuery("SELECT p FROM Pedido p WHERE p.numero = :numeroVariable", Pedido.class);
         query.setParameter("numeroVariable", numero);
-        return Optional.ofNullable (query.getSingleResult());
-
+        List<Pedido> pedidos = query.getResultList();
+        return pedidos.isEmpty() ? Optional.empty() : Optional.of(pedidos.get(0));
     }
 
     @Override
     public List<Pedido> readAll() {
-        // TODO Auto-generated method stub
-        return null;    }
+        return this.entityManager
+                .createQuery("SELECT p FROM Pedido p", Pedido.class)
+                .getResultList();
+    }
 
 }
